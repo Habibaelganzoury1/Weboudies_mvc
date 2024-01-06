@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // Include necessary files or configuration here if needed
 ?>
 
@@ -8,16 +8,70 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Edit Product</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .element {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .submit {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-
-<div class="signup">
-    <p class="sign">Edit Product</p>
-</div>
-
-<div class="sign">
+<div class="container">
+        <h2>Edit Product</h2>
     <form name="edit-Product" action="../db/product.php" method="post" onsubmit="return editProductHandler(event)" enctype="multipart/form-data">
         <input type="hidden" name="action" value="UpdateProduct">
 
