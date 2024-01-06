@@ -27,26 +27,26 @@
                 <label for="productName">Product Name:</label>
                 <input type="text" id="productName" name="productName" required placeholder="Enter Product Name">
                 <span id="productNameErrorMessage" class="error-message"></span>
-            </div>
+            </div><br>
 
             <div class="form-group">
                 <label for="productPrice">Product Price:</label>
                 <input type="number" id="productPrice" name="productPrice" required placeholder="Enter Product Price">
                 <span id="productPriceErrorMessage" class="error-message"></span>
-            </div>
+            </div><br>
 
             <div class="form-group">
                 <label for="productId">Product ID:</label>
                 <input type="text" id="productId" name="productId" required placeholder="Enter Product ID">
                 <span id="productIdErrorMessage" class="error-message"></span>
-            </div>
+            </div><br>
 
             <div class="form-group">
                 <label for="productImage">Product Image:</label>
                 <input type="file" id="productImage" name="productImage" accept="image/*" required>
                 <span id="productImageErrorMessage" class="error-message"></span>
                 <img id="previewImage" src="#" alt="Preview Image" style="display: none;">
-            </div>
+            </div><br>
 
             <div class="form-group">
                 <button type="submit" class="submit-button">Add Product</button>

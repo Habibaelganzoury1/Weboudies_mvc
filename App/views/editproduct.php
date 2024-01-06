@@ -18,24 +18,24 @@ session_start();
 </div>
 
 <div class="sign">
-    <form name="edit-product" action="../db/product.php" method="post" onsubmit="return editProductHandler(event)" enctype="multipart/form-data">
+    <form name="edit-Product" action="../db/product.php" method="post" onsubmit="return editProductHandler(event)" enctype="multipart/form-data">
         <input type="hidden" name="action" value="UpdateProduct">
 
         <!-- Product Name -->
         <label for="productName">Product Name:</label>
-        <input id="productName" type="text" class="element" name="productName" value="<?php echo isset($_SESSION['ProductName']) ? $_SESSION['ProductName'] : ''; ?>" required><br>
+        <input id="productName" type="text" class="element" name="productName" value="<?php echo isset($_SESSION['ProductName']) ? $_SESSION['ProductName'] : ''; ?>" required><br><br>
 
         <!-- Product Price -->
         <label for="productPrice">Product Price:</label>
-        <input id="productPrice" type="number" class="element" name="productPrice" value="<?php echo isset($_SESSION['ProductPrice']) ? $_SESSION['ProductPrice'] : ''; ?>" required><br>
+        <input id="productPrice" type="number" class="element" name="productPrice" value="<?php echo isset($_SESSION['ProductPrice']) ? $_SESSION['ProductPrice'] : ''; ?>" required><br><br>
 
         <!-- Product ID (Assuming it's non-editable) -->
         <label for="productId">Product ID:</label>
-        <input id="productId" type="text" class="element" name="productId" value="<?php echo isset($_SESSION['ProductId']) ? $_SESSION['ProductId'] : ''; ?>" readonly><br>
+        <input id="productId" type="text" class="element" name="productId" value="<?php echo isset($_SESSION['ProductId']) ? $_SESSION['ProductId'] : ''; ?>" readonly><br><br>
 
         <!-- Product Image -->
         <label for="productImage">Product Image:</label>
-        <input id="productImage" type="file" class="element" name="productImage"><br>
+        <input id="productImage" type="file" class="element" name="productImage"><br><br>
 
         <!-- Additional fields can be added as needed -->
 
