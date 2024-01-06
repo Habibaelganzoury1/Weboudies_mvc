@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oudies</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="public/css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 
   <style>
     body {
@@ -57,17 +57,17 @@
 <body>
   <header>
     <nav>
-      <div class="logo"><img src="public/img/name.png" alt="Oudies Logo"></div>
+      <div class="logo"><img src="name.png" alt="Oudies Logo"></div>
       <ul class="nav-links">
-        <li ><a href="home.html">Home</a></li>
-        <li><a href="hoodies.html">Hoodies</a></li>
+        <li ><a href="home.php">Home</a></li>
+        <li><a href="hoodies.php">Hoodies</a></li>
         <li><a href="#">Crewnecks</a></li>
         <li><a href="#">Pants</a></li>
       </ul>
       <div class="icons">
-        <a href="#"><i class="fas fa-user"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-        <a href="login.html" class="btn">Login</a>
+        <a href="login.php#"><i class="fas fa-user"></i></a>
+        <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
+        <a href="login.php" class="btn">Login</a>
       </div>
     </nav>
   </header>
@@ -81,7 +81,7 @@
             <p class="hoodie-name">Hoodie Name 1</p>
             <p class="hoodie-price">$29.99</p>
             <div class="icons">
-              <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
               <a href="#"><i class="far fa-heart"></i></a>
             </div>
           </div>
@@ -90,48 +90,24 @@
         <!-- Add more hoodie items with the same structure -->
         <!-- Hoodie 2 -->
         <div class="hoodie">
-          <img src="public/img/o3.jpg" alt="Hoodie 2">
+          <img src="o3.jpg" alt="Hoodie 2">
           <div class="info">
             <p class="hoodie-name">Hoodie Name 2</p>
             <p class="hoodie-price">$39.99</p>
             <div class="icons">
-              <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
               <a href="#"><i class="far fa-heart"></i></a>
             </div>
           </div>
         </div>
         <!-- Hoodie 2 -->
         <div class="hoodie">
-            <img src="public/img/o3.jpg" alt="Hoodie 2">
+            <img src="o3.jpg" alt="Hoodie 2">
             <div class="info">
               <p class="hoodie-name">Hoodie Name 2</p>
               <p class="hoodie-price">$39.99</p>
               <div class="icons">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Hoodie 2 -->
-        <div class="hoodie">
-            <img src="public/img/o3.jpg" alt="Hoodie 2">
-            <div class="info">
-              <p class="hoodie-name">Hoodie Name 2</p>
-              <p class="hoodie-price">$39.99</p>
-              <div class="icons">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Hoodie 2 -->
-        <div class="hoodie">
-            <img src="public/img/o3.jpg" alt="Hoodie 2">
-            <div class="info">
-              <p class="hoodie-name">Hoodie Name 2</p>
-              <p class="hoodie-price">$39.99</p>
-              <div class="icons">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
                 <a href="#"><i class="far fa-heart"></i></a>
               </div>
             </div>
@@ -143,7 +119,7 @@
               <p class="hoodie-name">Hoodie Name 2</p>
               <p class="hoodie-price">$39.99</p>
               <div class="icons">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
                 <a href="#"><i class="far fa-heart"></i></a>
               </div>
             </div>
@@ -155,7 +131,31 @@
               <p class="hoodie-name">Hoodie Name 2</p>
               <p class="hoodie-price">$39.99</p>
               <div class="icons">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Hoodie 2 -->
+        <div class="hoodie">
+            <img src="o3.jpg" alt="Hoodie 2">
+            <div class="info">
+              <p class="hoodie-name">Hoodie Name 2</p>
+              <p class="hoodie-price">$39.99</p>
+              <div class="icons">
+              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Hoodie 2 -->
+        <div class="hoodie">
+            <img src="o3.jpg" alt="Hoodie 2">
+            <div class="info">
+              <p class="hoodie-name">Hoodie Name 2</p>
+              <p class="hoodie-price">$39.99</p>
+              <div class="icons">
+              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
                 <a href="#"><i class="far fa-heart"></i></a>
               </div>
             </div>
@@ -166,7 +166,7 @@
               <p class="hoodie-name">Hoodie Name 2</p>
               <p class="hoodie-price">$39.99</p>
               <div class="icons">
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
                 <a href="#"><i class="far fa-heart"></i></a>
               </div>
             </div>
@@ -179,7 +179,7 @@
   
   <footer>
     <div class="footer-content">
-      <a href="about.html">About Us</a>
+      <a href="about.php">About Us</a>
       <p>Contact Us: contact@oudiess.com</p>
       <p>&copy; 2023 Oudies </p>
       <div class="social-icons">

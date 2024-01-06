@@ -18,12 +18,12 @@
         <h1>Your order has been placed !</h1>
         <h3>The order will arrive within 4 to 10 days</h3>
         <h3>We're waiting for your review</h3>
-        <a href="home.html" class="btn a">Continue Shopping</a>
+        <a href="home.php" class="btn a">Continue Shopping</a>
     </div>
 
     <footer>
         <div class="footer-content">
-            <a href="about.html">About Us</a>
+            <a href="about.php">About Us</a>
             <p>Contact Us: contact@oudiess.com</p>
             <p>&copy; 2023 Oudies </p>
             <div class="social-icons">

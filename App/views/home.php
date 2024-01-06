@@ -15,15 +15,15 @@
     <nav>
       <div class="logo"><img src="name.png" alt="Oudies Logo"></div>
       <ul class="nav-links">
-        <li ><a href="home.html">Home</a></li>
-        <li><a href="hoodies.html">Hoodies</a></li>
+        <li ><a href="home.php">Home</a></li>
+        <li><a href="hoodies.php">Hoodies</a></li>
         <li><a href="#">Crewnecks</a></li>
         <li><a href="#">Pants</a></li>
       </ul>
       <div class="icons">
         <a href="#"><i class="fas fa-user"></i></a>
         <a href="#"><i class="fas fa-shopping-cart"></i></a>
-        <a href="login.html" class="btn">Login</a>
+        <a href="login.php" class="btn">Login</a>
       </div>
     </nav>
   </header>
@@ -60,7 +60,7 @@
         <div class="blog-post">
           <h3>Post Title</h3>
           <p>Post excerpt or summary</p>
-          <a href="blog/post1.html" class="btn">Read More</a>
+          <a href="blog/post1.php" class="btn">Read More</a>
         </div>
         <!-- Add more blog posts -->
       </div>
@@ -70,7 +70,7 @@
   
   <footer>
     <div class="footer-content">
-      <a href="about.html">About Us</a>
+      <a href="about.php">About Us</a>
       <p>Contact Us: contact@oudiess.com</p>
       <p>&copy; 2023 Oudies </p>
       <div class="social-icons">
