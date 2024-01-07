@@ -79,8 +79,10 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                    <div class="mb-3">
+                    <p class="login-link"><a href="login.php">Already have an account? Login here</a></p>
+                    </div>
                 </form>
-                <p class="login-link"><a href="login.php">Already have an account? Login here</a></p>
             </div>
         </div>
     </div>
