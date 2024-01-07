@@ -62,8 +62,8 @@
       <ul class="nav-links">
         <li ><a href="home.php">Home</a></li>
         <li><a href="hoodies.php">Hoodies</a></li>
-        <li><a href="#">Crewnecks</a></li>
-        <li><a href="#">Pants</a></li>
+        
+        <li><a href="pants.php">Pants</a></li>
       </ul>
       <div class="icons">
         <a href="login.php#"><i class="fas fa-user"></i></a>
