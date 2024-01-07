@@ -62,7 +62,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                     <div class="text-center mt-3">
-                        <a href="#" class="register-link">Create an account</a> | <a href="#" class="forgot-password-link">Forgot Password?</a>
+                        <a href="#" class="register-link">Create an account</a> | <a href="signup.php" class="forgot-password-link">Forgot Password?</a>
                     </div>
                 </form>
             </div>
