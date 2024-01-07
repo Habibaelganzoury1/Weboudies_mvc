@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets the viewport properties,ensuring the webpage renders properly 
+    on different devices by adjusting to the device width and initial scale.-->
     <title>Add Product</title>
     <style>
         body {

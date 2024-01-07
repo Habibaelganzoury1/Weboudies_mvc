@@ -60,10 +60,29 @@ nav {
 }
 
 .hero {
-  text-align: center;
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center; /* Vertically center items */
+  align-items: center; /* Horizontally center items */
   padding: 100px 0;
-  background-color: #f4f4f4;
+  background-image: url('2.png'); /* Path to your image */
+  background-size: cover; /* Scale the image to cover the entire section */
+  background-position: center; /* Center the image */
+  color: white; /* Set text color to white */
+  height: 80vh; /* Ensure full viewport height */
 }
+
+.hero h1,
+.hero p,
+.hero a.btn {
+  background-color: black; /* Set text background to black */
+  padding: 10px 20px; /* Add padding to the text */
+  margin: 10px; /* Add margin for separation */
+  text-align: center; /* Center text */
+}
+
+
+
 
 .btn {
   display: inline-block;
@@ -148,12 +167,40 @@ footer {
 }
 
 .blog-posts {
-  max-width: 800px; /* Adjust width as needed */
-  width: 100%;
+  max-width: 200px; /* Adjust width as needed */
+  width: 60%;
 }
 
 .blog-post {
-  margin-bottom: 20px; /* Spacing between blog posts */
+  margin-bottom: 40px; /* Spacing between blog posts */
 }
 
 /* Additional styling for arrows, indicators, etc. can be added here */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Adjusted box size */
+  gap: 20px;
+  justify-content: center; /* Horizontally center the grid */
+  align-items: center; /* Vertically center the grid */
+  margin-top: 50px; /* Adjust top margin as needed */
+}
+
+.box {
+  background-color: #f9f9f9;
+  padding: 10px; /* Adjusted padding */
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center align text within box */
+  max-width: 500px; /* Adjusted maximum width */
+}
+
+/* Rest of your existing styles for .box elements */
+
+/* Additional styles */
+.home-category {
+  text-align: center; /* Center align the 'Shop by Category' title */
+}
+
+.title {
+  margin-bottom: 20px; /* Add spacing below the title */
+}

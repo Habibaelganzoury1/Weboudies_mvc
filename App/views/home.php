@@ -17,8 +17,7 @@
       <ul class="nav-links">
         <li ><a href="home.php">Home</a></li>
         <li><a href="hoodies.php">Hoodies</a></li>
-        <li><a href="#">Crewnecks</a></li>
-        <li><a href="#">Pants</a></li>
+        <li><a href="pants.php">Pants</a></li>
       </ul>
       <div class="icons">
         <a href="#"><i class="fas fa-user"></i></a>
@@ -35,15 +34,43 @@
       <p>Find your perfect fit here!</p>
       <a href="#" class="btn">Shop Now</a>
     </section>
+    <br>
+    <section class="home-category">
+    <h1 class="title">Shop by Category</h1>
+
+    <div class="container">
+        <div class="box">
+            <img src="images/name.png" alt="">
+            <h3><strong>Hoodies</strong></h3>
+            <p>Made of a heavyweight melton fleece fabric. Super-soft fabric perfect for the winter season. Drop-shoulder fit, front pouch pocket & banded hem & cuffs. This loose fit gives you a relaxed feel, 
+              so you can lounge around comfortably all day long. Item runs big & is oversized. Graphic print on front and back.</p>
+            <a href="hoodies.php" class="btn">Hoodies</a>
+        </div>
+
+        <!-- Repeat the same structure for other boxes -->
+
+        <!-- Example for 'Meat' box -->
+        <div class="box">
+            <img src="images/cat-2.png" alt="">
+            <h3><strong>Pants</strong></h3>
+            <p>First ever sweatpants in our soft melton fleece fabric. Relaxed-fit silhouette with exterior drawstrings. Side pockets & one back pocket. Elastic waist. 
+              Signature embroidered Oudies logo. These sweatpants were developed to have a true to size fit. .</p>
+            <a href="pants.php" class="btn">Pants</a>
+        </div>
+        
+        <!-- Add more boxes similarly -->
+    </div>
+    <br><br>
+</section>
 
     <div class="carousel">
       <div class="carousel-slide">
-        <img src="image1.jpg" alt="Hoodie 1">
+        <img src="carosel1.jpg" alt="Hoodie 1">
       </div>
       <div class="carousel-slide">
       </div>
       <div class="carousel-slide">
-        <img src="o1.jpg" alt="Hoodie 3">
+        <img src="carosel2.jpg" alt="Hoodie 3">
       </div>
       
       <!-- Controls -->
@@ -52,22 +79,8 @@
     </div>
   </main>
   </main>
-  <section class="blog">
-    <h2>Latest Blog Posts</h2>
-    <div class="blog-posts-container">
-      <div class="blog-posts">
-        <!-- Display blog posts with titles, excerpts, etc. -->
-        <div class="blog-post">
-          <h3>Post Title</h3>
-          <p>Post excerpt or summary</p>
-          <a href="blog/post1.php" class="btn">Read More</a>
-        </div>
-        <!-- Add more blog posts -->
-      </div>
-    </div>
-  </section>
   
-  
+
   <footer>
     <div class="footer-content">
       <a href="about.php">About Us</a>
@@ -78,6 +91,7 @@
         <a href="https://www.facebook.com/oudies" target="_blank"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
+
   </footer>
 
   <script>
