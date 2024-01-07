@@ -51,7 +51,9 @@ if(isset($_POST['submit'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/components.css">
-
+<style>  body { background-image: url('2.png'); /* Path to your image */
+  background-size: cover;
+        }</style>
 </head>
 <body>
 <?php

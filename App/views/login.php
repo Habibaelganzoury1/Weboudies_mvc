@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <style>
-        body {
-            background-color: #f8f9fa;
+        body { background-image: url('2.png'); /* Path to your image */
+  background-size: cover;
         }
 
         .login-container {
