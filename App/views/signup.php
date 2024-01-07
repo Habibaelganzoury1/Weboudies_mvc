@@ -11,6 +11,9 @@
 
     <!-- Custom CSS -->
     <style>
+          body { background-image: url('2.png'); /* Path to your image */
+  background-size: cover;
+        }
         body {
             background-color: #f8f9fa;
         }
