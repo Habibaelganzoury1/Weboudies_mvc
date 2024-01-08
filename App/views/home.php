@@ -83,7 +83,7 @@
 
   <footer>
     <div class="footer-content">
-      <a href="about.php">About Us</a>
+      <a href="Contact.php">Contact Us</a>
       <p>Contact Us: contact@oudiess.com</p>
       <p>&copy; 2023 Oudies </p>
       <div class="social-icons">
@@ -108,10 +108,10 @@
       // Initially show the first slide
       showSlide(currentSlide);
 
-      // Auto slide change every 3 seconds (3000ms)
+      // Auto slide change every 6 seconds (3000ms)
       setInterval(() => {
         showSlide(currentSlide + 1);
-      }, 3000);
+      }, 6000);
     });
   </script>
 </body>

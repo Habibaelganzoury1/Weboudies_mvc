@@ -9,6 +9,7 @@
     <title>Add Product</title>
     <style>
         body {
+            
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -158,7 +159,7 @@
             }
 
             if (!validateProductPrice(productPriceInput.value)) {
-                isValid = false;
+                isValid = false;0
             }
 
             if (!validateProductId(productIdInput.value)) {
@@ -205,3 +206,25 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
