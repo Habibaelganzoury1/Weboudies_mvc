@@ -7,14 +7,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cart.css">
-    <title>Shopping Cart</title>
+    <title>Your Cart</title>
 </head>
 
 <body>
 
     <header>
-        <h1>Shopping Cart</h1>
+    <nav>
+      <div class="logo"><img src="name.png" alt="Oudies Logo"></div>
+      <h1>Your Cart</h1>
+      </ul>
+      <div class="icons">
+        <a href="login.php" class="btn">Login</a>
+      </div>
+    </nav>
+    
     </header>
 
     <section class="products">
@@ -34,7 +43,7 @@
     </section>
 
     <section class="cart">
-        <h2>Shopping Cart</h2>
+        <h2>Cart Items</h2>
         <ul id="cart-items"></ul>
         <p>Total: $<span id="total">0.00</span></p>
 
@@ -45,10 +54,21 @@
             <option value="cashOnDelivery">Cash on Delivery</option>
             <option value="creditCard">Credit Card</option>
         </select><br><br>
-
         <button onclick="checkout()">Checkout</button>
     </section>
 
+    <footer>
+    <div class="footer-content">
+      <a href="Contact.php">Contact Us</a>
+      <p>Contact Us: contact@oudiess.com</p>
+      <p>&copy; 2023 Oudies </p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/oudies" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/oudies" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+
+  </footer>
     <script>
         let cartItems = [];
         let total = 0;

@@ -1,61 +1,106 @@
-/* Reset default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-  }
-  
-  /* Previous CSS styles... */
-  
-  /* Additional Contact Form styles */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  input[type="submit"] {
-    width: 50%;
-    margin-top: 15px;
-    cursor: pointer;
-  }
-  
-  /* Added some styling for the "Remove" button */
-  button.remove-btn {
-    background-color: #ff3333;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button.remove-btn:hover {
-    background-color: #ff6666;
-  }
-  
-  /* Rest of your existing styles... */
-  
+.products {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.product {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 0px #000000;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product p {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.cart {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 0px #000000;
+  margin-top: 20px;
+}
+
+.cart h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#cart-items li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#cart-items li:last-child {
+  border-bottom: none;
+}
+
+#total {
+  font-weight: bold;
+  color: #007bff;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+button.checkout {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.checkout:hover {
+  background-color: #0056b3;
+}

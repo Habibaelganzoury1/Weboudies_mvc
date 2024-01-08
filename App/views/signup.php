@@ -11,9 +11,11 @@
 
     <!-- Custom CSS -->
     <style>
-          body { background-image: url('2.png'); /* Path to your image */
-  background-size: cover;
+        body {
+            background-image: url('2.png');
+            background-size: cover;
         }
+
         body {
             background-color: #f8f9fa;
         }
@@ -32,6 +34,11 @@
         .signup-form .btn {
             font-size: 16px;
             border-radius: 5px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -65,6 +72,13 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid phone number.
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="password" class="form-label">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                         <div class="invalid-feedback">
@@ -79,8 +93,8 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
-                    <div class="mb-3">
-                    <p class="login-link"><a href="login.php">Already have an account? Login here</a></p>
+                    <div class="mb-3 login-link">
+                        <p><a href="login.php">Already have an account? Login here</a></p>
                     </div>
                 </form>
             </div>
@@ -89,37 +103,33 @@
 
     <!-- Bootstrap JS and Popper.js (Optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom JavaScript for form validation -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var form = document.getElementById('signupForm');
 
-        form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
+    <!-- Custom JavaScript for form validation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('signupForm');
 
-            // Check if passwords match
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('confirmPassword').value;
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
 
-            if (password !== confirmPassword) {
-                document.getElementById('confirmPassword').setCustomValidity("Passwords do not match");
-                event.preventDefault();
-            } else {
-                document.getElementById('confirmPassword').setCustomValidity('');
-            }
+                // Check if passwords match
+                var password = document.getElementById('password').value;
+                var confirmPassword = document.getElementById('confirmPassword').value;
 
-            form.classList.add('was-validated');
+                if (password !== confirmPassword) {
+                    document.getElementById('confirmPassword').setCustomValidity("Passwords do not match");
+                    event.preventDefault();
+                } else {
+                    document.getElementById('confirmPassword').setCustomValidity('');
+                }
+
+                form.classList.add('was-validated');
+            });
         });
-    });
-</script>
-
-</body>
-
-</html>
-
+    </script>
 
 </body>
 
