@@ -8,8 +8,8 @@
     on different devices by adjusting to the device width and initial scale.-->
     <title>Add Product</title>
     <style>
+        /* Your existing CSS styles */
         body {
-            
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -85,13 +85,12 @@
         }
     </style>
 </head>
-</head>
 
 <body>
     <!-- <a href="dashboard.php" class="back-button">Back</a> -->
     <div class="container">
         <h2>Add Product</h2>
-        <form id="addProductForm" method="POST" action="../includes/admin.php" enctype="multipart/form-data">
+        <form id="addProductForm" method="POST" action="Weboudies_mvc/App/controllers/admincontroller.php" enctype="multipart/form-data">
             <input type="hidden" name="action" value="addProduct">
 
             <div class="form-group">
@@ -124,7 +123,6 @@
             </div>
         </form>
     </div>
-
     <script>
         const addProductForm = document.getElementById('addProductForm');
         const productNameInput = document.getElementById('productName');
@@ -132,6 +130,7 @@
         const productIdInput = document.getElementById('productId');
         const productImageInput = document.getElementById('productImage');
         const previewImage = document.getElementById('previewImage');
+        const productImageErrorMessage = document.getElementById('productImageErrorMessage');
 
         addProductForm.addEventListener('submit', function (event) {
             if (!isFormValid()) {
@@ -140,7 +139,6 @@
         });
 
         productImageInput.addEventListener('change', function () {
-            // Display a preview of the selected image
             if (this.files && this.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function (e) {
@@ -159,7 +157,7 @@
             }
 
             if (!validateProductPrice(productPriceInput.value)) {
-                isValid = false;0
+                isValid = false;
             }
 
             if (!validateProductId(productIdInput.value)) {
@@ -174,23 +172,32 @@
         }
 
         function validateProductName(productName) {
-            // Add your validation logic for product name
+            if (productName.trim() === '') {
+                // Product name cannot be empty
+                return false;
+            }
             return true;
         }
 
         function validateProductPrice(productPrice) {
-            // Add your validation logic for product price
+            const price = parseFloat(productPrice);
+            if (isNaN(price) || price <= 0) {
+                // Price must be a valid positive number
+                return false;
+            }
             return true;
         }
 
         function validateProductId(productId) {
-            // Add your validation logic for product ID
+            if (productId.trim() === '' || isNaN(productId)) {
+                // Product ID must be a non-empty number
+                return false;
+            }
             return true;
         }
 
         function validateProductImage(productImageInput) {
             const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-            const productImageErrorMessage = document.getElementById('productImageErrorMessage');
             const fileName = productImageInput.value.toLowerCase();
             const fileExtension = fileName.split('.').pop();
 
@@ -203,28 +210,7 @@
             }
         }
     </script>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
