@@ -84,7 +84,7 @@ while ($row = mysqli_fetch_assoc($all)) {
     if ($row["type"] === 'hoodie') { // Check if the product type is 'hoodie'
 ?>
     <div class="hoodie">
-        <img src="<?php echo $row["image"]; ?>" alt="Hoodie Image">
+        <img src="<?php echo $row["image"]; ?>" alt="">
         <div class="info">
             <p class="hoodie-name"><?php echo $row["name"]?></p>
             <p class="hoodie-price"><?php echo $row["price"]?></p>
