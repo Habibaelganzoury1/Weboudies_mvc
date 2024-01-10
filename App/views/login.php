@@ -81,7 +81,6 @@ if (isset($_POST['submit'])) {
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" name="submit">Login</button>
-                    <a href="home.php" class="btn">Login</a>
                     <div class="text-center mt-3">
                         <a href="signup.php" class="register-link">Create an account</a> | <a href="#" class="forgot-password-link">Forgot Password?</a>
                     </div>
