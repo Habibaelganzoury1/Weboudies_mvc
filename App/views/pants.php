@@ -1,4 +1,9 @@
 <?php
+require_once '../db/Dbh.php';
+
+$sql="SELECT * FROM products";
+$all=$conn->query($sql);
+
 //include "../partials/nav.php";
 ?>
 <!DOCTYPE html>
@@ -12,6 +17,7 @@
 
   <style>
     body {
+      
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -71,86 +77,28 @@
     </nav>
   </header>
   <body>
-
+   
     <div class="hoodies-container">
-        <!-- Hoodie 1 -->
-        <div class="hoodie">
-          <img src="pants11.jpg" alt="Hoodie 1">
-          <div class="info">
-            <p class="hoodie-name">pants Name 1</p>
-            <p class="hoodie-price">$29.99</p>
+    <?php
+while ($row = mysqli_fetch_assoc($all)) {
+    if ($row["type"] === 'pants') { // Check if the product type is 'hoodie'
+?>
+    <div class="hoodie">
+        <img src="<?php echo $row["image"]; ?>" alt="Hoodie Image">
+        <div class="info">
+            <p class="hoodie-name"><?php echo $row["name"]?></p>
+            <p class="hoodie-price"><?php echo $row["price"]?></p>
             <div class="icons">
-            <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-              <a href="#"><i class="far fa-heart"></i></a>
+                <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
             </div>
-          </div>
         </div>
-    
-        <!-- Add more hoodie items with the same structure -->
-        <!-- Hoodie 2 -->
-        <div class="hoodie">
-          <img src="pants2.jpg" alt="Hoodie 2">
-          <div class="info">
-            <p class="hoodie-name">pants Name 2</p>
-            <p class="hoodie-price">$39.99</p>
-            <div class="icons">
-            <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-              <a href="#"><i class="far fa-heart"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Hoodie 2 -->
-        <div class="hoodie">
-            <img src="pants3.jpg" alt="Hoodie 2">
-            <div class="info">
-              <p class="hoodie-name">pants Name 2</p>
-              <p class="hoodie-price">$39.99</p>
-              <div class="icons">
-              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Hoodie 2 -->
-        <div class="hoodie">
-            <img src="pants4.jpg" alt="Hoodie 2">
-            <div class="info">
-              <p class="hoodie-name">pants Name 2</p>
-              <p class="hoodie-price">$39.99</p>
-              <div class="icons">
-              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Hoodie 2 -->
-        <div class="hoodie">
-            <img src="o3.jpg" alt="Hoodie 2">
-            <div class="info">
-              <p class="hoodie-name">pants Name 2</p>
-              <p class="hoodie-price">$39.99</p>
-              <div class="icons">
-              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Hoodie 2 -->
-        
-          <div class="hoodie">
-            <img src="o3.jpg" alt="Hoodie 2">
-            <div class="info">
-              <p class="hoodie-name">pants Name 2</p>
-              <p class="hoodie-price">$39.99</p>
-              <div class="icons">
-              <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-              </div>
-            </div>
-          </div>
-        <!-- Add more hoodie items as needed -->
-      </div>
-    
+    </div>
+<?php
+    }
+}
+?>
+     </div>
   </body>
   
   

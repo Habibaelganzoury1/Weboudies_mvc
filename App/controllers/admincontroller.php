@@ -1,5 +1,6 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'addProduct') {
+function addProduct($productName, $productPrice, $productImage)
+{
     $servername = "localhost";
     $username = "root";
     $password = ""; // Update with your actual password if set
@@ -11,46 +12,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $productName = $_POST['productName'];
-    $productPrice = $_POST['productPrice'];
-    $productId = $_POST['productId'];
 
-    $targetDir = "uploads/";
-    $targetFile = $targetDir . basename($_FILES["productImage"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+    $targetDir = '../views/images/ ' ; // Full path to the images directory
+    $targetFile = $targetDir . basename($productImage["name"]);
+    move_uploaded_file($productImage["tmp_name"], $targetFile);
 
-    $check = getimagesize($_FILES["productImage"]["tmp_name"]);
-    if ($check === false) {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
+    // Insert product into the database
+    $sql = "INSERT INTO products (name, price, image) VALUES ('$productName', '$productPrice', '$targetFile')";
 
-    if ($_FILES["productImage"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
-
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+    if ($conn->query($sql) === TRUE) {
+        echo "New product added successfully";
     } else {
-        if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $targetFile)) {
-            $sql = "INSERT INTO products (name, price, id, img) VALUES ('$productName', '$productPrice', '$productId', '$targetFile')";
-            if ($conn->query($sql) === TRUE) {
-                echo "New product added successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
 }
+
+// Example usage:
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'addProduct') {
+    $productName = $_POST['productName'];
+    $productPrice = $_POST['productPrice'];
+    $productImage = $_FILES['productImage'];
+
+    addProduct($productName, $productPrice, $productImage);
+    header("Location: ../views/hoodies.php");
+}
+
 ?>
