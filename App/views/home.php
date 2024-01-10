@@ -21,7 +21,7 @@
       </ul>
       <div class="icons">
         <a href="#"><i class="fas fa-user"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
         <a href="login.php" class="btn">Login</a>
       </div>
     </nav>
