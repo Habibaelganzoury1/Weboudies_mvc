@@ -94,3 +94,29 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Assuming a table structure like this:
+ CREATE TABLE cart (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     ID INT,
+     product_id INT,
+     quantity INT,
+     price DECIMAL(10, 2),
+     FOREIGN KEY (ID) REFERENCES userr(id),
+     FOREIGN KEY (product_id) REFERENCES products(id)
+ );
+
+-- Replace 'users' and 'products' with your actual user and product tables.
+
+SELECT
+    c.id AS cart_id,
+    u.username AS username,
+    p.product_name AS product_name,
+    c.quantity,
+    c.price
+FROM
+    cart c
+JOIN
+    userr u ON c.ID = u.id
+JOIN
+    products p ON c.product_id = p.id;
