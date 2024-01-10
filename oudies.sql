@@ -28,15 +28,27 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `products` (
+  `product_id` INT AUTO_INCREMENT PRIMARY KEY,
   `price` varchar(30) DEFAULT NULL,
   `image` text DEFAULT NULL,
-  `name` varchar(30) DEFAULT NULL
+  `name` varchar(30) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
+INSERT INTO `products` (`price`, `image`, `name`,`type`) VALUES
+('330', 'images\\Hoodie1.WEBP', 'Hoodie 1','hoodie'),
+('380', 'images\\Hoodie2.WEBP', 'Hoodie 2','hoodie'),
+('400', 'images\\Hoodie3.WEBP', 'Hoodie 3','hoodie'),
+('270', 'images\\Hoodie4.WEBP', 'Hoodie 4','hoodie'),
+('450', 'images\\Hoodie5.WEBP', 'Hoodie 4','hoodie'),
+('250', 'images\\pants3.WEBP', 'pants 1','pants'),
+('250', 'images\\pants2.WEBP', 'pants 2','pants'),
+('250', 'images\\pants4.WEBP', 'Hoodie 2','pants'),
+('250', 'images\\pants1.WEBP', 'Hoodie 2','pants');
 -- --------------------------------------------------------
 
 --
