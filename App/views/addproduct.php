@@ -109,6 +109,16 @@
     </div><br>
 
     <div class="form-group">
+        <label for="productType">Product Type:</label>
+        <select id="productType" name="productType">
+            <option value="hoodie">hoodie</option>
+            <option value="pants">pants</option>
+        </select>
+    </div><br>
+
+
+
+    <div class="form-group">
         <label for="productImage">Product Image:</label>
         <input type="file" id="productImage" name="productImage" accept="image/*" required>
         <span id="productImageErrorMessage" class="error-message"></span>
