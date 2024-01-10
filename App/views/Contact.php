@@ -36,11 +36,7 @@
   <div class="container">
     <div class="box">
       <h2>Contact Us</h2>
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="feedback">Feedback:</label>
-          <input type="text" id="feedback" name="feedback">
-        </div>
+      <form id="contactForm" method="POST" action="he/App/controllers/contactcontroller.php" enctype="multipart/form-data">>
         <div class="form-group">
           <label for="message">Leave Your Message Here:</label>
           <textarea id="message" name="message" rows="6"></textarea>
@@ -53,7 +49,51 @@
           <label for="email">Email:</label>
           <input type="email" id="email" name="email">
         </div>
-        <input type="submit" value="Submit" class="btn">
+        
+        <button type="submit" class="btn">Submit</button>
+</form>
+<div id="confirmationMessage" style="display: none;"></div>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents the default form submission behavior
+    var messageElement = document.getElementById("confirmationMessage");
+    messageElement.innerHTML = "Your message is saved. Someone will contact you shortly.";
+    messageElement.style.display = "block";
+    // Additional logic to send the form data asynchronously or perform other actions
+    // For example, you can use AJAX to send the form data to the server
+    // Here's a basic example using jQuery for simplicity:
+    /*
+   document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevents the default form submission behavior
+  
+  // Serialize form data
+  var formData = new FormData(this);
+  
+  // Send form data using AJAX
+  $.ajax({
+    url: "he/App/controllers/contactcontroller.php",
+    method: "POST",
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(response) {
+      // Handle successful form submission if needed
+      var messageElement = document.getElementById("confirmationMessage");
+      messageElement.innerHTML = "Your message is saved. Someone will contact you shortly.";
+      messageElement.style.display = "block";
+    },
+    error: function(xhr, status, error) {
+      // Handle errors if needed
+    }
+  });
+});
+
+    */
+  });
+</script>
+
+
       </form>
     </div>
   </div>

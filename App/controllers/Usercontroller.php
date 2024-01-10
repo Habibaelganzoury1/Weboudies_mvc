@@ -1,50 +1,57 @@
 <?php
-function InsertUser()
+include_once "../db/dbh.inc.php";
+
+function insertUser()
 {
+    global $connection;
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include_once "../db/dbh.inc.php";
-        $user_type=1;
+        $user_type = 1;
         $name = htmlspecialchars($_POST["Full_Name"]);
         $email = htmlspecialchars($_POST["mail"]);
         $address = htmlspecialchars($_POST["Address"]);
         $password = htmlspecialchars($_POST["Password"]);
-        $Phone = htmlspecialchars($_POST["Phone"]);
+        $phone = htmlspecialchars($_POST["Phone"]);
 
-        $sqle = "SELECT * FROM user WHERE mail='$mail'";
-        $result = $connection->query($sqle);
+        $sqlCheck = "SELECT * FROM user WHERE mail='$email'";
+        $result = $connection->query($sqlCheck);
 
-        if ($result->num_rows == 1) {
+        if ($result->num_rows > 0) {
             echo "User Already Exists";
         } else {
+            $sql = "INSERT INTO user (user_type, name, mail, address, password, Phone) VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("isssss", $user_type, $name, $email, $address, $password, $phone);
 
-            $sql = "INSERT INTO user (user_type,name, mail, address, password,Phone) VALUES ('$user_type','$name', '$email', '$address', '$password')";
-
-            if ($connection->query($sql) === TRUE) {
+            if ($stmt->execute()) {
                 header("Location:../view/index.php");
             } else {
                 echo "Error: " . $connection->error;
             }
-
-            $connection->close();
+            $stmt->close();
         }
     }
 }
 
-function FindUser()
+function findUser()
 {
+    global $connection;
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
-        include_once "../db/dbh.inc.php";
         $email = htmlspecialchars($_POST["mail"]);
         $password = $_POST["password"];
 
-        $sql = "SELECT * FROM patient WHERE mail='$mail'";
-        $result = $connection->query($sql);
+        $sql = "SELECT * FROM user WHERE mail=?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
 
-            if ($password == $row['password']) {
+            if ($password == $row['Password']) {
                 $_SESSION["ID"] = $row["ID"];
                 $_SESSION["Name"] = $row["Name"];
                 $_SESSION["Address"] = $row["address"];
@@ -59,42 +66,39 @@ function FindUser()
         } else {
             echo "User not Found";
         }
-        $connection->close();
+        $stmt->close();
     }
 }
 
-function UpdateUser()
+function updateUser()
 {
+    global $connection;
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
-        include_once "../db/dbh.inc.php";
-
         $userID = $_SESSION["ID"];
 
-       
         $name = htmlspecialchars($_POST["name"]);
         $email = htmlspecialchars($_POST["mail"]);
         $address = htmlspecialchars($_POST["address"]);
         $password = htmlspecialchars($_POST["password"]);
 
-        $sql = "UPDATE user SET name='$name', mail='$mail', address='$address', password='$password' WHERE id='$ID'";
+        $sql = "UPDATE user SET name=?, mail=?, address=?, password=? WHERE ID=?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("ssssi", $name, $email, $address, $password, $userID);
 
-        if ($connection->query($sql) === TRUE) {
+        if ($stmt->execute()) {
             $_SESSION["Name"] = $name;
-            $_SESSION["Age"] = $age;
             $_SESSION["Address"] = $address;
             $_SESSION["Password"] = $password;
-            $_SESSION["mail"] = $mail;
-
+            $_SESSION["mail"] = $email;
             header("Location:../view/profile.php");
         } else {
             echo "Error updating record: " . $connection->error;
         }
-
-        $connection->close();
+        $stmt->close();
     }
 }
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST["action"])) {
@@ -102,10 +106,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($action === "InsertUser") {
             insertUser();
         } elseif ($action === "FindUser") {
-            FindUser();
-        }elseif ($action === "UpdateUser") {
-            UpdateUser();
-        }else {
+            findUser();
+        } elseif ($action === "UpdateUser") {
+            updateUser();
+        } else {
             echo "Invalid action";
         }
     }

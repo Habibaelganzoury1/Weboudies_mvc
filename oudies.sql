@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 07:50 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Jan 10, 2024 at 03:42 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,80 +24,63 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
---
-
-CREATE TABLE `cart` (
-  `cart_id` int(11) NOT NULL,
-  `userid` int(10) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `product_name` varchar(50) NOT NULL,
-  `product_price` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
-  `name` varchar(50) NOT NULL,
-  `price` int(100) NOT NULL,
-  `id` int(11) NOT NULL,
-  `img` longblob NOT NULL
+  `price` varchar(30) DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `name` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`name`, `price`, `id`, `img`) VALUES
-('', 0, 0, 0x61626f75742d696d672d322e706e67),
-('', 0, 0, 0x6361742d332e706e67),
-('', 0, 0, 0x6361742d332e706e67);
+INSERT INTO `products` (`price`, `image`, `name`) VALUES
+('30', 'images\\o2.JPG', 'Hoodie 1'),
+('80', 'images\\o3.JPG', 'Hoodie 2'),
+('100', 'images\\p1.PNG', 'Hoodie 3'),
+('120', 'images\\p2.PNG', 'Hoodie 4');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `userr`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `userr` (
   `ID` int(10) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `mail` varchar(50) DEFAULT NULL,
-  `Password` varchar(50) NOT NULL,
-  `Phone` varchar(11) NOT NULL,
-  `address` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `uname` varchar(50) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `phone` varchar(11) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `password` varchar(50) NOT NULL,
+  `cpassword` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `userr`
 --
 
-INSERT INTO `user` (`ID`, `Name`, `mail`, `Password`, `Phone`, `address`) VALUES
-(1, 'nada', NULL, '123', '58796321458', NULL),
-(2, 'Ahmed', NULL, '123', '01234567899', NULL),
-(3, 'Sara', NULL, '123', '53687426587', NULL),
-(10, 'salma', NULL, '123', '36547896521', NULL),
-(17, 'hassan', NULL, '123', '36547896521', NULL);
+INSERT INTO `userr` (`ID`, `fname`, `lname`, `uname`, `mail`, `phone`, `address`, `password`, `cpassword`) VALUES
+(7, 'Lina', 'Mohamed', 'manal', 'lina_@outlook.com', '01030101454', 'Maadi', '56', '56'),
+(8, 'Lina', 'Mohamed', 'lina.bassel', 'lina_bio22@outlook.com', '01030101454', 'Maadi', '12', '12'),
+(9, 'Lina', 'ekwhflwe', 'waled', 'mostafa@ou.com', '01030101454', 'Maadi', '12', '12'),
+(10, 'Lina', 'dsfsdfsdfsd', 'samira.refaey', 'lina_bio2018@outlook.com', '01030101454', 'Maadi', '5', '5'),
+(11, 'Lina', 'dsfsdfsdfsd', 'aya', 'lina_bio2018@outlook.com', '01030101454', 'Maadi', '1', '1'),
+(12, 'thtr', 'geer', 'ergeerg', 'lina_bio22@outlook.comyyy', '0103569845', 'Maadi', '23', '23');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `cart`
+-- Indexes for table `userr`
 --
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `userid` (`userid`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
+ALTER TABLE `userr`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -105,26 +88,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `cart`
+-- AUTO_INCREMENT for table `userr`
 --
-ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`ID`);
+ALTER TABLE `userr`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

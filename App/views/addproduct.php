@@ -9,6 +9,9 @@
     <title>Add Product</title>
     <style>
         /* Your existing CSS styles */
+        body { background-image: url('2.png'); /* Path to your image */
+        background-size: cover;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
