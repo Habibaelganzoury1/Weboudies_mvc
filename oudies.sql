@@ -37,12 +37,6 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`price`, `image`, `name`) VALUES
-('30', 'images\\o2.JPG', 'Hoodie 1'),
-('80', 'images\\o3.JPG', 'Hoodie 2'),
-('100', 'images\\p1.PNG', 'Hoodie 3'),
-('120', 'images\\p2.PNG', 'Hoodie 4');
-
 -- --------------------------------------------------------
 
 --

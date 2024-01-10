@@ -83,7 +83,7 @@ $all=$conn->query($sql);
      while($row=mysqli_fetch_assoc($all)){
      ?>
           <div class="hoodie">
-            <img src="<?php echo $row["pants2"] ?>" alt="Hoodie 2">
+            <img src="<?php echo $row["image"] ?>" alt="product">
             <div class="info">
               <p class="hoodie-name"><?php echo $row["name"]?></p>
               <p class="hoodie-price"><?php echo $row["price"]?></p>
