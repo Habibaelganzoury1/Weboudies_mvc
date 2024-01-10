@@ -119,8 +119,8 @@ COMMIT;
 
 SELECT
     c.id AS cart_id,
-    u.username AS username,
-    p.product_name AS product_name,
+    u.uname AS username,
+    p.name AS product_name,
     c.quantity,
     c.price
 FROM

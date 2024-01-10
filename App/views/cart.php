@@ -58,7 +58,31 @@ function clearCart() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cart.css">
-    <title>Your Cart</title>
+    <title>Shopping Cart</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+
+        .action-links {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -73,26 +97,54 @@ function clearCart() {
     </header>
 
     <h2>Shopping Cart</h2>
+    <?php
+    // Check if the cart is empty
+    if (empty($_SESSION['cart'])) {
+        echo "<p>Your cart is empty.</p>";
+    } else {
+    ?>
     <table>
         <tr>
             <th>Product</th>
+            <th>Quantity</th>
             <th>Price</th>
+            <th>Total</th>
             <th>Action</th>
         </tr>
         <?php
         // Display products in the cart
+        $totalPrice = 0;
+
         foreach ($_SESSION['cart'] as $product_id) {
+            // Replace the following lines with actual data retrieval from your database
+            $name = "products $product_id";
+            $price = 10.00; // Replace with actual product price
+            $quantity = 1; // Replace with actual quantity
+
+            $totalItemPrice = $price * $quantity;
+            $totalPrice += $totalItemPrice;
+
             echo "<tr>";
-            echo "<td>Product $product_id</td>";
-            echo "<td>$10.00</td>";
+            echo "<td>$name</td>";
+            echo "<td>$quantity</td>";
+            echo "<td>$price</td>";
+            echo "<td>$totalItemPrice</td>";
             echo "<td><a href='cart.php?action=remove&id=$product_id'>Remove</a></td>";
             echo "</tr>";
         }
         ?>
+        <tr class="total">
+            <td colspan="3">Total:</td>
+            <td colspan="2">$<?php echo number_format($totalPrice, 2); ?></td>
+        </tr>
     </table>
 
-    <a href="cart.php?action=clear">Clear Cart</a>
-    <a href="home.php">Continue Shopping</a>
+    <div class="action-links">
+        <a href="cart.php?action=clear">Clear Cart</a>
+        <a href="home.php">Continue Shopping</a>
+    </div>
+    <?php } ?>
+    </table>
 
     <footer>
     <div class="footer-content">
