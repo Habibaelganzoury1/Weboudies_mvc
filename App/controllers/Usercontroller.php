@@ -1,7 +1,7 @@
 <?php
 include_once "../db/dbh.inc.php";
 
-/*function insertUser()
+function insertUser()
 {
     global $connection;
 
@@ -32,38 +32,42 @@ include_once "../db/dbh.inc.php";
         }
     }
 }
-*/
+
 function findUser()
 {
     global $connection;
-    if (isset($_POST['submit'])) {
-        if(empty($_POST['pass'])||
-        empty($_POST['email'])){{?>
-            <p class= "error"> <?php echo('Please fill all required fields!');?> </p>
-     <?php }
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-    
-        $res=mysqli_query($conn,"SELECT * FROM userr WHERE uname='$username' AND password='$password'");
-        $row=mysqli_fetch_assoc($res);
-        if(mysqli_num_rows($res)>0){
-            if($password==$row['password']){
-                $_SESSION['login']=true;
-                $_SESSION['id']=$row['ID'];
-                header("Location:home.php");
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        session_start();
+        $email = htmlspecialchars($_POST["mail"]);
+        $password = $_POST["password"];
+
+        $sql = "SELECT * FROM user WHERE mail=?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+
+            if ($password == $row['Password']) {
+                $_SESSION["ID"] = $row["ID"];
+                $_SESSION["Name"] = $row["Name"];
+                $_SESSION["Address"] = $row["address"];
+                $_SESSION["Password"] = $row["Password"];
+                $_SESSION["Phone"] = $row["Phone"];
+                $_SESSION["mail"] = $row["mail"];
+                var_dump($_SESSION);
+                header("Location:../view/profile.php");
+            } else {
+                echo "Incorrect Password";
             }
-    
+        } else {
+            echo "User not Found";
         }
-        else if($_POST["username"]=="admin" && $_POST["password"]== "admin"){
-            header("Location:adminview.php");
-        }
-        else{
-            ?>
-             <p class= "error"> <?php echo("An email with this password doesn't exist.Sign up please.");?> </p>
-            <?php 
-    
-            }
-    }}
+        $stmt->close();
+    }
 }
 
 function updateUser()
