@@ -9,8 +9,6 @@ err_log($message . PHP_EOL, 3, "error_log.txt");
 }
 
 set_error_handler("customErrorHandler");
-echo $undefinedVariable;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
