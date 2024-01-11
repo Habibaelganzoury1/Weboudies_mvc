@@ -147,20 +147,7 @@ else {
                     <button type="submit" class="btn btn-primary btn-block" name="submit" onclick="findUser()">Login</button>
     </form>
 
-    <script>
-        function findUser() {
-            // Call the finduser() function from user controller using AJAX or any other suitable method
-            
-             $.ajax({
-                 type: 'POST',
-               url: 'controllers/Usercontroller.php',
-              data: { action: 'finduser' },
-            /  success: function(response) {
-            //         // Handle the response as needed
-                    console.log(response);
-             }
-             });
-            }
+    
                     <div class="mb-3 login-link">
                         <p><a href="login.php">Already have an account? Login here</a></p>
                     </div>
