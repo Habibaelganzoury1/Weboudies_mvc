@@ -1,21 +1,8 @@
-<?php
+S<?php
 require_once '../db/Dbh.php';
-if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
 
-    $res=mysqli_query($conn,"SELECT * FROM userr WHERE uname='$username' AND password='$password'");
-    $row=mysqli_fetch_assoc($res);
-    if(mysqli_num_rows($res)>0){
-        if($password==$row['password']){
-            $_SESSION['login']=true;
-            $_SESSION['id']=$row['ID'];
-        }
-    }
-}
 
-?>
-
+		?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,6 +72,22 @@ if (isset($_POST['submit'])) {
                         <a href="signup.php" class="register-link">Create an account</a> | <a href="#" class="forgot-password-link">Forgot Password?</a>
                     </div>
                 </form>
+                <!-- Add this script block after the closing </form> tag -->
+<script>
+    function findUser() {
+        // Call the finduser() function from user controller using AJAX or any other suitable method
+        $.ajax({
+            type: 'POST',
+            url: '../controllers/Usercontroller.php',
+            data: { action: 'finduser' },
+            success: function(response) {
+                // Handle the response as needed
+                console.log(response);
+            }
+        });
+    }
+</script>
+
             </div>
         </div>
     </div>
