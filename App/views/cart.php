@@ -1,90 +1,19 @@
 <?php
-session_start();
-
-// Initialize the shopping cart if not already done
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = array();
-}
-
-// Handle cart actions
-if (isset($_GET['action']) && isset($_GET['id'])) {
-    $action = $_GET['action'];
-    $product_id = $_GET['id'];
-
-    switch ($action) {
-        case 'add':
-            addToCart($product_id);
-            break;
-        case 'remove':
-            removeFromCart($product_id);
-            break;
-        case 'clear':
-            clearCart();
-            break;
-    }
-}
-
-function addToCart($product_id) {
-    // Add product to the cart
-    if (!in_array($product_id, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $product_id;
-    }
-
-    header('Location: home.php');
-}
-
-function removeFromCart($product_id) {
-    // Remove product from the cart
-    $index = array_search($product_id, $_SESSION['cart']);
-    if ($index !== false) {
-        unset($_SESSION['cart'][$index]);
-    }
-
-    header('Location: cart.php');
-}
-
-function clearCart() {
-    // Clear the entire cart
-    $_SESSION['cart'] = array();
-
-    header('Location: cart.php');
-}
+/include "../partials/nav.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cart.css">
-    <title>Shopping Cart</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        .total {
-            font-weight: bold;
-        }
-
-        .action-links {
-            margin-top: 10px;
-        }
-    </style>
+    <title>Your Cart</title>
 </head>
+
 <body>
+
     <header>
     <nav>
       <div class="logo"><img src="name.png" alt="Oudies Logo"></div>
@@ -94,57 +23,39 @@ function clearCart() {
         <a href="login.php" class="btn">Login</a>
       </div>
     </nav>
+    
     </header>
 
-    <h2>Shopping Cart</h2>
-    <?php
-    // Check if the cart is empty
-    if (empty($_SESSION['cart'])) {
-        echo "<p>Your cart is empty.</p>";
-    } else {
-    ?>
-    <table>
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Action</th>
-        </tr>
-        <?php
-        // Display products in the cart
-        $totalPrice = 0;
+    <section class="products">
+        <div class="product">
+            <img src="p1.png" alt="Product 1">
+            <h2>Product 1</h2>
+            <p>$19.99</p>
+            <button onclick="addToCart('Product 1', 19.99)">Add to Cart</button>
+        </div>
 
-        foreach ($_SESSION['cart'] as $product_id) {
-            // Replace the following lines with actual data retrieval from your database
-            $name = "products $product_id";
-            $price = 10.00; // Replace with actual product price
-            $quantity = 1; // Replace with actual quantity
+        <div class="product">
+            <img src="p2.png" alt="Product 2">
+            <h2>Product 2</h2>
+            <p>$29.99</p>
+            <button onclick="addToCart('Product 2', 29.99)">Add to Cart</button>
+        </div>
+    </section>
 
-            $totalItemPrice = $price * $quantity;
-            $totalPrice += $totalItemPrice;
+    <section class="cart">
+        <h2>Cart Items</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="total">0.00</span></p>
 
-            echo "<tr>";
-            echo "<td>$name</td>";
-            echo "<td>$quantity</td>";
-            echo "<td>$price</td>";
-            echo "<td>$totalItemPrice</td>";
-            echo "<td><a href='cart.php?action=remove&id=$product_id'>Remove</a></td>";
-            echo "</tr>";
-        }
-        ?>
-        <tr class="total">
-            <td colspan="3">Total:</td>
-            <td colspan="2">$<?php echo number_format($totalPrice, 2); ?></td>
-        </tr>
-    </table>
-
-    <div class="action-links">
-        <a href="cart.php?action=clear">Clear Cart</a>
-        <a href="home.php">Continue Shopping</a>
-    </div>
-    <?php } ?>
-    </table>
+        <!-- Added a payment method selection -->
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod">
+            <option value="select">Select</option>
+            <option value="cashOnDelivery">Cash on Delivery</option>
+            <option value="creditCard">Credit Card</option>
+        </select><br><br>
+        <button onclick="checkout()">Checkout</button>
+    </section>
 
     <footer>
     <div class="footer-content">
@@ -156,8 +67,8 @@ function clearCart() {
         <a href="https://www.facebook.com/oudies" target="_blank"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
-    </footer>
 
+  </footer>
     <script>
         let cartItems = [];
         let total = 0;
@@ -226,5 +137,7 @@ function clearCart() {
             updateCart();
         }
     </script>
+
 </body>
+
 </html>
