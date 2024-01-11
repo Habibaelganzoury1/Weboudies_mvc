@@ -1,9 +1,30 @@
 <?php
-//require '../db/Dbh.php';
+require_once '../db/Dbh.php';
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $res=mysqli_query($conn,"SELECT * FROM userr WHERE uname='$username' AND password='$password'");
+    $row=mysqli_fetch_assoc($res);
+    if(mysqli_num_rows($res)>0){
+        if($password==$row['password']){
+            $_SESSION['login']=true;
+            $_SESSION['id']=$row['ID'];
+            if($_POST["username"]=="admin" && $_POST["password"]== "admin"){
+                header("Location:adminview.php");
+            }
+            else{
+                header("Location:home.php");
+            }
+            
+        }
+    }
+}
+
 ?>
 
-// Remove the unnecessary DOCTYPE declaration
-// <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -46,7 +67,7 @@
     <div class="container login-container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-sm-8">
-                <form class="login-form" id="loginForm" method="POST" action="controllers/Usercontroller.php">
+                <form class="login-form" id="loginForm" method="POST" >
                     <h2 class="text-center mb-4">Login</h2>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username:</label>
@@ -71,22 +92,6 @@
                         <a href="signup.php" class="register-link">Create an account</a> | <a href="#" class="forgot-password-link">Forgot Password?</a>
                     </div>
                 </form>
-                <!-- Add this script block after the closing </form> tag -->
-<script>
-    function findUser() {
-        // Call the finduser() function from user cont roller using AJAX or any other suitable method
-        $.ajax({
-            type: 'POST',
-            url: '../controllers/Usercontroller.php',
-            data: { action: 'finduser' },
-            success: function(response) {
-                // Handle the response as needed
-                console.log(response);
-            }
-        });
-    }
-</script>
-
             </div>
         </div>
     </div>

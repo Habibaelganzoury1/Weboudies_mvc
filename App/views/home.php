@@ -27,6 +27,7 @@ set_error_handler("customErrorHandler");
         <li ><a href="home.php">Home</a></li>
         <li><a href="hoodies.php">Hoodies</a></li>
         <li><a href="pants.php">Pants</a></li>
+        <li><a href="allproducts.php">All Products</a></li>
       </ul>
       <div class="icons">
         <a href="#"><i class="fas fa-user"></i></a>

@@ -68,6 +68,7 @@ $all=$conn->query($sql);
         <li ><a href="home.php">Home</a></li>
         <li><a href="hoodies.php">Hoodies</a></li>
         <li><a href="pants.php">Pants</a></li>
+        <li><a href="allproducts.php">All Products</a></li>
       </ul>
       <div class="icons">
         <a href="login.php#"><i class="fas fa-user"></i></a>
@@ -90,7 +91,7 @@ while ($row = mysqli_fetch_assoc($all)) {
             <p class="hoodie-price"><?php echo $row["price"]?></p>
             <div class="icons">
                 <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
+                
             </div>
         </div>
     </div>
@@ -104,7 +105,7 @@ while ($row = mysqli_fetch_assoc($all)) {
   
   <footer>
     <div class="footer-content">
-      <a href="about.php">About Us</a>
+      <a href="contact.php">Contact Us</a>
       <p>Contact Us: contact@oudiess.com</p>
       <p>&copy; 2023 Oudies </p>
       <div class="social-icons">

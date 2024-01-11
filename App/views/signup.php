@@ -77,6 +77,16 @@ else {
             text-align: center;
             margin-top: 20px;
         }
+        .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(211, 16, 16);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
     </style>
 </head>
 
@@ -150,6 +160,7 @@ else {
     
                     <div class="mb-3 login-link">
                         <p><a href="login.php">Already have an account? Login here</a></p>
+                        <a href="home.php" class="btn">Enter as a guest</a>
                     </div>
                 </form>
             </div>
