@@ -1,39 +1,9 @@
-S<?php
-require_once '../db/Dbh.php';
-global $connection;
-findUser{
-    if (isset($_POST['submit'])) {
-        if(empty($_POST['pass'])||
-        empty($_POST['email'])){{?>
-            <p class= "error"> <?php echo('Please fill all required fields!');?> </p>
-     <?php }
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-    
-        $res=mysqli_query($conn,"SELECT * FROM userr WHERE uname='$username' AND password='$password'");
-        $row=mysqli_fetch_assoc($res);
-        if(mysqli_num_rows($res)>0){
-            if($password==$row['password']){
-                $_SESSION['login']=true;
-                $_SESSION['id']=$row['ID'];
-                header("Location:home.php");
-            }
-    
-        }
-        else if($_POST["username"]=="admin" && $_POST["password"]== "admin"){
-            header("Location:adminview.php");
-        }
-        else{
-            ?>
-             <p class= "error"> <?php echo("An email with this password doesn't exist.Sign up please.");?> </p>
-            <?php 
+<?php
+//require '../db/Dbh.php';
+?>
 
-           }   }
-    }
-
-		?>
-
-<!DOCTYPE html>
+// Remove the unnecessary DOCTYPE declaration
+// <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -98,7 +68,7 @@ findUser{
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" name="submit">Login</button>
                     <div class="text-center mt-3">
-                    <button type="submit" class="btn btn-primary btn-block" name="submit" onclick="findUser()">Login</button> | <a href="#" class="forgot-password-link">Forgot Password?</a>
+                        <a href="signup.php" class="register-link">Create an account</a> | <a href="#" class="forgot-password-link">Forgot Password?</a>
                     </div>
                 </form>
                 <!-- Add this script block after the closing </form> tag -->
